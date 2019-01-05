@@ -87,7 +87,7 @@
 <meta property="og:description" content="使用EFB实现Telegram收发微信即时聊天工具确实太多了,比如qq,微信,what’s app,telegram等等.而且有些app确实太过于臃肿,比如微信,对于我来说,只是为了接收几个人的消息而已,对于其所谓的生态没有半毛钱兴趣的话,没有那么多精力来处理它.因此ehForwarderBot诞生了.它可以调用其他即时通讯的api,在一个app上(本文用telegram)集中管理所有消息.PS:">
 <meta property="og:locale" content="zh-Hanz">
 <meta property="og:image" content="http://yoursite.com/uploads/Screen%20Shot%202019-01-05%20at%2016.08.15.png">
-<meta property="og:updated_time" content="2019-01-05T08:38:58.171Z">
+<meta property="og:updated_time" content="2019-01-05T08:43:49.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ehForwarderBot wechat slave">
 <meta name="twitter:description" content="使用EFB实现Telegram收发微信即时聊天工具确实太多了,比如qq,微信,what’s app,telegram等等.而且有些app确实太过于臃肿,比如微信,对于我来说,只是为了接收几个人的消息而已,对于其所谓的生态没有半毛钱兴趣的话,没有那么多精力来处理它.因此ehForwarderBot诞生了.它可以调用其他即时通讯的api,在一个app上(本文用telegram)集中管理所有消息.PS:">
@@ -308,7 +308,7 @@
 <li>vps上的python的使用版本必须大于等于3.6<ul>
 <li>说实话EFB 2.x的安装比几年前的1.x的安装要简单太多了,也比之前1.x的要稳定,但是假如你用的python版本是小于等于3.6的话,各种惊喜在后面等你</li>
 <li>报错出现类似于<code>empty channel</code>之类的话,请检查一下你安装efb时使用的python版本</li>
-<li>由于很多linux系统的python版本是都是默认的3.5(linux系统的很多脚本是直接用python写的),即使你升级也无济于事,所以这里建议vps的系统最好使用windows的,因为windows的python版本管理就是傻瓜式操作,升级会把之前的老版本给直接覆盖了,没有版本管理这一说(对于没有经验的人来说,这是最快的解决方式.但是这也依旧抹除不了windows是个垃圾这个不争的事实)</li>
+<li>由于很多linux系统的python版本是都是默认的3.5(linux系统的很多脚本是直接用python写的),即使你升级也无济于事,所以这里建议vps的系统最好使用windows的,因为windows的python版本安装就是傻瓜式操作,升级会把之前的老版本给直接覆盖了,没有版本管理这一说(对于没有经验的人来说,这是最快的解决方式.但是这也依旧抹除不了windows是个垃圾这个不争的事实)</li>
 <li><img src="/uploads/Screen%20Shot%202019-01-05%20at%2016.08.15.png" alt="Screen Shot 2019-01-05 at 16.08.15"></li>
 </ul>
 </li>
@@ -317,16 +317,22 @@
 <li>假如系统版本的python不是3.6及以上的,请自行stackoverflow或者去相关系统的论坛上查找解决方案,自己花了几个小时,到最后也不知道是怎么被自己切换到python3.6</li>
 <li>以下操作都是基于你已经安装了python3.6的前提下进行的</li>
 <li><p>安装efb的依赖</p>
- <figure class="highlight plain"><figcaption><span>sudo apt install ffmpeg</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install libmagic pillow</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ffmpeg</span><br><span class="line">$ pip3 install libmagic pillow</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装efb</p>
- <figure class="highlight plain"><figcaption><span>pip3 install ehforwarderbot ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5. 在根目录下新建一个.ehforwarderbot的文件夹,并且更改所有用户的权限</span><br><span class="line">    ``` $ mkdir ~/.ehforwarderbot</span><br><span class="line">        $ chmod -R 777 .ehforwarderbot</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install ehforwarderbot</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在根目录下新建一个.ehforwarderbot的文件夹,并且更改所有用户的权限</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/.ehforwarderbot</span><br><span class="line">$ chmod -R 777 .ehforwarderbot</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>接着再新建一个存储数据的文件夹storage,并更改其权限</p>
- <figure class="highlight plain"><figcaption><span>mkdir -p .ehforwarderbot/storage</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 777 .ehforwarderbot/storage</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p .ehforwarderbot/storage</span><br><span class="line">$ chmod 777 .ehforwarderbot/storage</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装<code>master channel: Telegram</code></p>
- <figure class="highlight plain"><figcaption><span>pip3 install efb-telegram-master ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8. 安装`wechat slave channel: Telegram`</span><br><span class="line">    ``` $ pip3 install efb-wechat-slave</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install efb-telegram-master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装<code>wechat slave channel: Telegram</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install efb-wechat-slave</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="创建Bot"><a href="#创建Bot" class="headerlink" title="创建Bot"></a>创建Bot</h3><p>在Telegram中通过BotFather创建一个新的bot,用来专门接收来自于微信的消息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. /start</span><br><span class="line">2. /newbot # 会生成一个token</span><br><span class="line">3. /setprivacy # 设置为&apos;Disable&apos; - your bot will receive all messages that people send to groups.</span><br><span class="line">4. /setjoingroups # &apos;Enable&apos; - bot can be added to groups.</span><br><span class="line">5. /setcommands 添加以下命令及描述：</span><br><span class="line">    link - 将会话绑定到 Telegram 群组</span><br><span class="line">    chat - 生成会话头</span><br><span class="line">    recog - 回复语音消息以进行识别</span><br><span class="line">    extra - 获取更多功能</span><br><span class="line">6. @get_id_bot 使用他帮你查询一下bot ID</span><br></pre></td></tr></table></figure></p>
