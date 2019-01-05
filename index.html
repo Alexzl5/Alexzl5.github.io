@@ -303,7 +303,7 @@
       
         
           
-            <h1 id="使用EFB实现Telegram收发微信"><a href="#使用EFB实现Telegram收发微信" class="headerlink" title="使用EFB实现Telegram收发微信"></a>使用EFB实现Telegram收发微信</h1><p>即时聊天工具确实太多了,比如qq,微信,what’s app,telegram等等.而且有些app确实太过于臃肿,比如微信,对于我来说,只是为了接收几个人的消息而已,对于其所谓的生态没有半毛钱兴趣的话,没有那么多精力来处理它.因此<a href="https://ehforwarderbot.readthedocs.io/en/latest/" target="_blank" rel="noopener">ehForwarderBot</a>诞生了.它可以调用其他即时通讯的api,在一个app上(本文用telegram)集中管理所有消息.PS:这样子就能在一个手机上双开微信(但是telegram上的微信只能聊天,并不能做别的事情)…本文主要介绍如何使用telegram来接发微信消息,关于其他的app自己有兴趣的可以找官方文档尝试一下,不同的点主要在于<code>slave channel</code>的变更.</p>
+            <h1 id="使用EFB实现Telegram收发微信"><a href="#使用EFB实现Telegram收发微信" class="headerlink" title="使用EFB实现Telegram收发微信"></a>使用EFB实现Telegram收发微信</h1><p>即时聊天工具确实太多了,比如qq,微信,what’s app,telegram等等.而且有些app确实太过于臃肿,比如微信,对于我来说,只是为了接收几个人的消息而已,对于其所谓的生态没有半毛钱兴趣.因此<a href="https://ehforwarderbot.readthedocs.io/en/latest/" target="_blank" rel="noopener">ehForwarderBot</a>诞生了.它可以调用其他即时通讯的api,在一个app上(本文用telegram)集中管理所有消息.PS:这样子就能在一个手机上双开微信(但是telegram上的微信只能聊天,并不能做别的事情)…本文主要介绍如何使用telegram来接发微信消息,关于其他的app自己有兴趣的可以找官方文档尝试一下,不同的点主要在于<code>slave channel</code>的变更.</p>
 <h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><ul>
 <li>微信账号必须能登录网页版(本质是调用网页版微信的api接口,所以才能达到所谓的多端口登录)</li>
 <li>一台vps,国内的或者海外的都可以,建议最好还是用海外的</li>
@@ -352,8 +352,8 @@
 <li><p>启动EFB</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen python3 -m ehforwarderbot</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Enjoy yourself</p>
-<h2 id="Show-time"><a href="#Show-time" class="headerlink" title="Show time"></a>Show time</h2></li>
+<li><p>Enjoy yourself<br> 如有问题,欢迎调戏</p>
+</li>
 </ol>
 
           
