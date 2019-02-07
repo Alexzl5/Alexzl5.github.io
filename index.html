@@ -232,6 +232,132 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/install-ss-on-vps/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="alexzl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/WCavatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alexzl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/install-ss-on-vps/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-07T15:40:48+08:00">
+                2019-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Install-SS-on-VPS"><a href="#Install-SS-on-VPS" class="headerlink" title="Install SS on VPS"></a>Install SS on VPS</h1><h2 id="Install-Shadowsocks-Dependencies-amp-amp-Shadowsocks"><a href="#Install-Shadowsocks-Dependencies-amp-amp-Shadowsocks" class="headerlink" title="Install Shadowsocks Dependencies &amp;&amp; Shadowsocks"></a>Install Shadowsocks Dependencies &amp;&amp; Shadowsocks</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--获取root权限--&gt;</span><br><span class="line">sudo -s</span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">&lt;!--安装python包管理工具--&gt;</span><br><span class="line">apt-get install python-setuptools</span><br><span class="line">apt-get install python-pip</span><br><span class="line"></span><br><span class="line">&lt;!--安装shadowsocks--&gt;</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+<h2 id="Edit-shadowsocks-configuration"><a href="#Edit-shadowsocks-configuration" class="headerlink" title="Edit shadowsocks configuration"></a>Edit shadowsocks configuration</h2><p><a href="https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File" target="_blank" rel="noopener">创建并编辑配置文件</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/shadowsocks</span><br><span class="line">vi /etc/shadowsocks/ss.json</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;0.0.0.0&quot;,</span><br><span class="line">    &quot;server_port&quot;:443, //端口号自己任意填写,尽量避免常用端口,比如443</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">    &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;password&quot;:&quot;abcd&quot;,//密码自己设定</span><br><span class="line">    &quot;timeout&quot;:300,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;,//连接方式</span><br><span class="line">    &quot;fast_open&quot;:false,</span><br><span class="line">    &quot;workers&quot;:1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Launch-shadowsocks-on-server-Useful-command"><a href="#Launch-shadowsocks-on-server-Useful-command" class="headerlink" title="Launch shadowsocks on server(Useful command)"></a>Launch shadowsocks on server(Useful command)</h2><p><a href="https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File" target="_blank" rel="noopener">常用启动命令</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//启动ss服务</span><br><span class="line">ssserver -c /etc/shadowsocks/ss.json -d start</span><br><span class="line">//关闭ss服务</span><br><span class="line">ssserver -c /etc/shadowsocks/ss.json -d stop</span><br><span class="line">//重启ss服务</span><br><span class="line">ssserver -c /etc/shadowsocks/ss.json -d restart</span><br></pre></td></tr></table></figure></p>
+<h2 id="Set-automatically-boot"><a href="#Set-automatically-boot" class="headerlink" title="Set automatically boot"></a>Set automatically boot</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//编辑rc.local文件</span><br><span class="line">vi /etc/rc.local</span><br><span class="line"></span><br><span class="line">//在最后一行插入以下命令</span><br><span class="line">sudo ssserver -c /etc/shadowsocks/ss.json -d start</span><br></pre></td></tr></table></figure>
+<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><p><a href="https://stackoverflow.com/questions/14547631/python-locale-error-unsupported-locale-setting?r=SearchResults" target="_blank" rel="noopener">python error</a><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale.Error: unsupported locale setting</span><br></pre></td></tr></table></figure></p>
+<p> Solution<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export LC_ALL=&quot;en_US.UTF-8&quot;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/regular-mac-problem-01/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -614,7 +740,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
