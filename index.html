@@ -232,6 +232,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/install-python3.6-on-ubuntu-16.04-LTS/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="alexzl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/WCavatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alexzl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/install-python3.6-on-ubuntu-16.04-LTS/" itemprop="url">install-python3.6-on-ubuntu-16.04-LTS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T10:36:07+08:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Problem/" itemprop="url" rel="index">
+                    <span itemprop="name">Problem</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Install-Python3-6-on-Ubuntu-16-04-LTS"><a href="#Install-Python3-6-on-Ubuntu-16-04-LTS" class="headerlink" title="Install Python3.6 on Ubuntu 16.04 LTS"></a>Install Python3.6 on Ubuntu 16.04 LTS</h1><p>The default python version is 3.5. And if you want to use the version 3.6, it takes times to do it.Install Python3.6 from a third-party PPA by doing the following steps.</p>
+<ol>
+<li><p>Add the python 3.6 repository</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf/python-3.6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check updates and install Python3.6 via commands</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install python3.6</span><br></pre></td></tr></table></figure>
+<p> After this, you could find out the specified details of the python you’ve installed with the following commands</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3.6 -V</span><br></pre></td></tr></table></figure>
+<p> The latest version should be 3.6.7(Installation date is 2019.02.14)</p>
+</li>
+<li><p>To make <code>python3</code> use the new installed python3.6 instead of the default 3.5, run following commands</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1</span><br><span class="line">sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2</span><br></pre></td></tr></table></figure>
+<p> Finally switch between the two python version for <code>python3</code> via command</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --config python3</span><br></pre></td></tr></table></figure>
+<p> After selecting version 3.6</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -V</span><br></pre></td></tr></table></figure>
+<p> Reference:<a href="http://ubuntuhandbook.org/index.php/2017/07/install-python-3-6-1-in-ubuntu-16-04-lts/" target="_blank" rel="noopener">How to Install Python 3.6.1 in Ubuntu 16.04 LTS</a> </p>
+<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><p> <strong>Q:</strong><br> It shows the following error <code>pip3 command not found</code>, but the python3-pip has been already installed.<br> <strong>Solution:</strong><br> If this happens, you could reinstall pip3 via following commands</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove python3-pip</span><br><span class="line">sudo apt-get install python3-pip</span><br></pre></td></tr></table></figure>
+<p> Reference:<a href="https://stackoverflow.com/a/33358010/6902444" target="_blank" rel="noopener">pip3 command not found</a></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/install-ss-on-vps/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -764,7 +928,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
