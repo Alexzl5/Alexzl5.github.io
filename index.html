@@ -232,6 +232,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/use-custom-domain-with-hexo/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="alexzl">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/WCavatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alexzl">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/use-custom-domain-with-hexo/" itemprop="url">use custom domain with hexo && how to reset to origin</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-15T13:11:28+08:00">
+                2019-02-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Use-custom-domain-to-your-blog-built-on-Hexo"><a href="#Use-custom-domain-to-your-blog-built-on-Hexo" class="headerlink" title="Use custom domain to your blog built on Hexo"></a>Use custom domain to your blog built on Hexo</h2><p>If you want use your own domain name instead of the one (<code>xxx.github.io</code>) given by github, the following steps should be taken.</p>
+<ol>
+<li><p>Get your git page’s ip</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping xxx.github.io</span><br><span class="line">//change the xxx on your own</span><br></pre></td></tr></table></figure>
+<p> <img src="/uploads/PING.png" alt="PING"><br> The return <code>XXX.XXX.XXX.XXX</code> is the ip you need.</p>
+</li>
+<li>Configure DNS Setting<br> <img src="/uploads/DNS%20Configure.png" alt="DNS Configure"><br>The operation for different provider varies, you should figure it out on your own.</li>
+<li>Create CNAME file<br> Change to hexo directory, create a CNAME file under source directory. Add your custom domain to the file</li>
+<li><p>Things get done via the following commands</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p> After this, when you enter the <code>xxx.github.io</code> into your browser, it will automatically redirect to your own domain. And if you enter your own domain, the browser will show you your blog content.</p>
+</li>
+</ol>
+<h2 id="How-to-reset-to-original-domain-given-by-github"><a href="#How-to-reset-to-original-domain-given-by-github" class="headerlink" title="How to reset to original domain given by github"></a>How to reset to original domain given by github</h2><p>If you want to reset the domain, you can achieve it by doing following steps</p>
+<ol>
+<li><p>Change directory to your repo, and clean it</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Edit your CNAME file, leave it blank or just delete it</p>
+</li>
+<li><p>Finished via commands</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Then you could check out whether it works by entering your original url(xxx.github.io) into browser. If it doesn’t redirect to your custom domain and it shows contents instead of 404 page, it means it works.</p>
+</li>
+<li>One more thing: if you don’t want your custom domain link to your blog, you could just set DNS.<br>That’s all for this tutorial.</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/install-python3.6-on-ubuntu-16.04-LTS/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -928,7 +1096,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -950,7 +1118,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
